@@ -1,3 +1,3 @@
 export const config = {
-    backEndUrl : "http://localhost:3001"
+    backEndUrl : "https://amryttserver-production.up.railway.app"
 }
