@@ -35,6 +35,7 @@ const Users = () => {
     const { register, handleSubmit } = useForm();
 
 
+
     useEffect(()=>{
         dispatch(getall())
     },[])
@@ -253,11 +254,31 @@ const Users = () => {
                         
                         return (
                         <Space size="middle">
-                        <Button disabled={user?.role === "ADMIN"?false:true} onClick={()=>{
+                        <Button disabled={(()=>{
+                            if(user?.role ==="ADMIN"){
+                                return false
+                            }
+                            else if(user?.permission?.USER?.write =="true"){
+                                return false
+                            }
+                            else{
+                                return true
+                            }
+                        })()} onClick={()=>{
                             setSelectedUser(record);
                             setEditmodal(true)
                         }}>Edit {record.lastName}</Button>
-                        <Button disabled={user?.role === "ADMIN"?false:true} onClick={()=>{
+                        <Button disabled={(()=>{
+                            if(user?.role ==="ADMIN"){
+                                return false
+                            }
+                            else if(user?.permission?.USER?.delete =="true"){
+                                return false
+                            }
+                            else{
+                                return true
+                            }
+                        })()} onClick={()=>{
                             deleteUser(record)
                         }} style={{background:"red",color:"#fff"}}>Delete</Button>
                         </Space>
