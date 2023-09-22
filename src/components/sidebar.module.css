@@ -1,0 +1,36 @@
+
+
+.sidebar {
+    width: 50px;
+    height: 100vh;
+    background-color: #9C6FE4;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarIcons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sidebarIcon{
+    font-size: 40px;
+
+}
+
+.sidebar ul li {
+    margin-bottom: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.ActiveSidebarIcon{
+    color:orange;
+}

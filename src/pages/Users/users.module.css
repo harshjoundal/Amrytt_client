@@ -1,0 +1,71 @@
+.formContainer{
+    width: 100%;
+    /* height: 300px; */
+}
+.userform{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 16px;
+}
+
+.roleContainer{
+    font-size: 16px;
+    display: flex;
+    gap: 20px;
+}
+.roleContainer select {
+    width: 100px;
+}
+.userform input {
+    padding: 6px;
+    font-size: 14px;
+
+}
+
+.permissions{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.permissions > div{
+    padding-left: 30px;
+    display: flex;
+    gap: 20px;
+}
+.permissions > div > select{
+    width:70px;
+}
+.formSubmit{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+.formSubmit:active{
+    transform: scale(0.9);
+    transition: 0.2s;
+}
+
+.tableContainer{
+    margin: auto;
+    margin-top: 80px;
+    width: 85%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 12px;
+}
+
+
+.adduserButton {
+    background-color:green;
+    padding: 10px 20px;
+    border:none;
+    border-radius: 8px;
+    font-weight: 500;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 7%;
+
+}
