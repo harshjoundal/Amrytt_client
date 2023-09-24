@@ -5,7 +5,8 @@ import axios from "axios";
 
 const initialState = {
     websites : [],
-    getAllLoadding : false
+    getAllLoadding : false,
+    addWebsiteLoading : false
 }
 
 export const getAllWebsite = createAsyncThunk(
@@ -43,10 +44,11 @@ export const websiteSlice = createSlice({
             openNotificationWithIcon({type:"error",context:"Something went wrong!"})
         })
         .addCase(addwebsite.pending,(state)=>{
+            state.addWebsiteLoading = true
         })
         .addCase(addwebsite.fulfilled,(state,action)=>{
+            state.addWebsiteLoading = false
 
-            console.log(action.payload.data.code,"<<<<<<");
             if(action.payload.data.code){
                 openNotificationWithIcon({type:"error",context:action.payload.data.code})
                 return;
@@ -55,6 +57,8 @@ export const websiteSlice = createSlice({
             window.location.reload()
         })
         .addCase(addwebsite.rejected,(state)=>{
+            state.addWebsiteLoading = false
+
             openNotificationWithIcon({type:"error",context:"Something went wrong!"})
         })
     }

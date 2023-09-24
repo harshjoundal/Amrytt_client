@@ -7,6 +7,7 @@ import styles from './websites.module.css'
 import { useAppDispatch } from '../../Store/Hooks';
 import {useEffect,useState} from 'react'
 import {useForm} from 'react-hook-form'
+import Loader from '../../components/Loader';
 // const URL = require('url'); 
 
 interface DataType {
@@ -51,7 +52,7 @@ const columns: ColumnsType<DataType> = [
 
 const Websites = () => {
 
-  const {websites} = useSelector(selectWebsites) 
+  const {websites ,getAllLoadding,addWebsiteLoading} = useSelector(selectWebsites) 
   const dispatch = useAppDispatch()
 
   
@@ -69,6 +70,11 @@ const Websites = () => {
 
   return (
     <div>
+      {
+        (getAllLoadding || addWebsiteLoading) && (
+          <Loader message='Loading...'/>
+        )
+      }
       <button className={styles.addWebsiteButton} onClick={()=>setOpenModal(true)}>Add Website</button>
       <div className={styles.tableContainer}>
       <Table columns={columns} dataSource={websites} />
@@ -89,11 +95,11 @@ const Websites = () => {
 
             <div>
               <label>Website Url</label>
-              <input required={true} {...register("websiteURL")} placeholder='websiteUrl'/>
+              <input required={true} {...register("websiteURL")} placeholder='Example : https://www.facebook.com/'/>
             </div>
             <div>
               <label>Profile Link</label>
-              <input required={true} {...register("profileLink")} placeholder='ProfileLink'/>
+              <input required={true} {...register("profileLink")} placeholder='Example : https://www.facebook.com/profile'/>
             </div>
             <div>
               <label>Name</label>

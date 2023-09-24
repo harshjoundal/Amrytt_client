@@ -4,10 +4,9 @@ import { Loginuser, selectCurrentUser, setState } from './currentUser.slice'
 import styles from './Login.module.css'
 import loginImage from './loginImage.png'
 import {ThunkDispatch} from "@reduxjs/toolkit";
-import { loginUser } from './login.api'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import _ from 'lodash'
+import Loader from '../../components/Loader'
 
 
 
@@ -17,7 +16,7 @@ const Login = () => {
     const [formState,setFormState] = useState({email:"",password:""})
 
     const navigate = useNavigate()
-    const {user} = useSelector(selectCurrentUser)
+    const {user,loginLoading} = useSelector(selectCurrentUser)
 
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     
@@ -38,6 +37,7 @@ const Login = () => {
     }
   return (
     <div className={styles.mainContainer}>
+        {loginLoading && <Loader message='Loading...'/>}
         <div className={styles.loginLeft}>
             <div className={styles.loginFormContainer}>
                 <div className={styles.loginTitle}>Login</div>

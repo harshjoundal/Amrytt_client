@@ -94,3 +94,17 @@
     width: 80%;
     align-self: center;
 }
+
+@media (900px <= width <= 1000px) {
+    .loginFormContainer{
+        width: 90%;
+    }
+}
+@media (width <= 899px){
+    .loginRight {
+        display: none;
+    }
+    .loginFormContainer{
+        width: 80%;
+    }
+}

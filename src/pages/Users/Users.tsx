@@ -1,4 +1,4 @@
-import { Button,Modal,Radio,Spin,Table,Space,message} from 'antd'
+import { Button,Modal,Spin,Table,Space,message} from 'antd'
 import React, { useEffect, useState } from 'react'
 import styles from './users.module.css'
 import {useForm} from "react-hook-form"
@@ -8,6 +8,7 @@ import { addUser, getall, selectUsersState ,DeleteUser} from './user.slice'
 import { selectCurrentUser } from '../Login/currentUser.slice'
 import EditUserModal from '../../components/editUserModal'
 import { useNavigate } from 'react-router-dom'
+import Loader from '../../components/Loader'
 var _ = require('lodash')
 
 export const openNotificationWithIcon = ({ type, context }:any) => {
@@ -30,7 +31,7 @@ const Users = () => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
     const {user} = useSelector(selectCurrentUser)
-    const {users} = useSelector(selectUsersState)
+    const {users,registerUserLoading,getAllLoading,userDeleteLoading} = useSelector(selectUsersState)
 
     const { register, handleSubmit } = useForm();
 
@@ -79,6 +80,11 @@ const Users = () => {
     }
   return (
     <div>
+        {
+            (registerUserLoading || getAllLoading || userDeleteLoading) && (
+                <Loader message='Loading...'/>
+            )
+        }
 
         {user.role === "ADMIN"
             && (

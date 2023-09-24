@@ -4,6 +4,7 @@
     width: 85%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 12px;
+    margin-bottom: 50px;
 }
 
 .addWebsiteButton{
@@ -35,7 +36,7 @@
     border:  none;
     padding: 8px;
     font-size: 14px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .submit {
@@ -47,4 +48,5 @@
         width: fit-content;
         margin: auto;
         border-radius: 8px;
+       
 }

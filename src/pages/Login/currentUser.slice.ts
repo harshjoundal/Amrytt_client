@@ -32,6 +32,7 @@ export const currentUserSlice = createSlice({
 
         .addCase(Loginuser.pending,(state)=>{
             state.loginLoading = true;
+            message.info("Logging In")
             return
         })
         .addCase(Loginuser.fulfilled,(state,action:any)=>{

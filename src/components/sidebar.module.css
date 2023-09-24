@@ -34,3 +34,13 @@
 .ActiveSidebarIcon{
     color:orange;
 }
+
+.loader{
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
